@@ -348,8 +348,8 @@ int appApplicationStart::appMain(int argc, char* argv[], const appApplicationSta
 
         if (retVal)
         {
-            afApplicationCommands* pApplicationCommnads = afApplicationCommands::instance();
-            GT_IF_WITH_ASSERT(pApplicationCommnads != NULL)
+            afApplicationCommands* pApplicationCommands = afApplicationCommands::instance();
+            GT_IF_WITH_ASSERT(pApplicationCommands != NULL)
             {
                 // Skip the nosplash command line argument:
                 int currentArgIndex = 1;
@@ -382,11 +382,11 @@ int appApplicationStart::appMain(int argc, char* argv[], const appApplicationSta
 
                         if (fileDirectory.directoryPath().asString().isEmpty())
                         {
-                            pApplicationCommnads->getProjectsFilePath(fileName, projectPath);
+                            pApplicationCommands->getProjectsFilePath(fileName, projectPath);
                         }
 
                         // Open the requested project:
-                        pApplicationCommnads->OnFileOpenProject(projectPath.asString());
+                        pApplicationCommands->OnFileOpenProject(projectPath.asString());
 
                         // For debug - open a source code file:
                         currentArgIndex++;
@@ -402,7 +402,7 @@ int appApplicationStart::appMain(int argc, char* argv[], const appApplicationSta
                                 gtString sourceCodeFileName;
                                 sourceCodeFileName.fromASCIIString(argv[currentArgIndex]);
                                 osFilePath filePath(sourceCodeFileName);
-                                pApplicationCommnads->OpenFileAtLine(filePath, 43, true);
+                                pApplicationCommands->OpenFileAtLine(filePath, 43, true);
                             }
                         }
                     }
@@ -411,7 +411,7 @@ int appApplicationStart::appMain(int argc, char* argv[], const appApplicationSta
                 // Open startup page:
                 if (m_sApplicationStartupData.m_flagEnable.testFlag(AppCreate::APP_ENABLE_WELCOME_PAGE))
                 {
-                    pApplicationCommnads->OnFileOpenWelcomePage();
+                    pApplicationCommands->OnFileOpenWelcomePage();
                 }
             }
 
@@ -426,7 +426,7 @@ int appApplicationStart::appMain(int argc, char* argv[], const appApplicationSta
             // Calculate the title bar's string:
             gtString titleBarString;
             afCalculateCodeXLTitleBarString(titleBarString);
-            pApplicationCommnads->setApplicationCaption(titleBarString);
+            pApplicationCommands->setApplicationCaption(titleBarString);
 
             // Force refresh:
             pAppMainWindow->activateWindow();

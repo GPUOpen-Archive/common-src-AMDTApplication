@@ -83,10 +83,12 @@ appQtApplication::~appQtApplication()
 // ---------------------------------------------------------------------------
 bool appQtApplication::notify(QObject* pReceiver, QEvent* pEvent)
 {
-    QKeyEvent* pKeyEvent = dynamic_cast<QKeyEvent*>(pEvent);
+    QKeyEvent* pKeyEvent = nullptr;
 
-    if (NULL != pKeyEvent)
+    if ((nullptr != pEvent) && (pEvent->type() == QEvent::KeyPress))
     {
+        pKeyEvent = static_cast<QKeyEvent*>(pEvent);
+
         // Check if it is an short cut key at all:
         bool shouldCheck = false;
 

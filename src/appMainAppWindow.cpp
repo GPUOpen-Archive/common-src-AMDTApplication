@@ -2472,11 +2472,6 @@ void appMainAppWindow::initializeApplicationBasicMenus()
         GT_ASSERT(nullptr != pProfileMenu);
 
         // Create the analyze menu:
-        menuString = AF_STR_FrameAnalysisMenuString;
-        QMenu* pFrameAnalysisMenu = getActionMenuItemParentMenu(menuString, nullptr, true);
-        GT_ASSERT(nullptr != pFrameAnalysisMenu);
-
-        // Create the analyze menu:
         menuString = AF_STR_AnalyzeMenuString;
         QMenu* pAnalyzeMenu = getActionMenuItemParentMenu(menuString, nullptr, true);
         GT_ASSERT(nullptr != pAnalyzeMenu);

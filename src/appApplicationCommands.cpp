@@ -77,36 +77,11 @@ bool appApplicationCommands::OpenFileAtLine(const osFilePath& filePath, int line
         if (ext == AF_STR_CodeXMLImageBuffersFilesExtension)
         {
             mdiCreatorType = AF_STR_ImageBuffersViewsCreatorID;
-
-        }
-        else if (ext == AF_STR_CpuProfileFileExtension)
-        {
-            mdiCreatorType = AF_STR_CPUProfileViewsCreatorID;
         }
         else if (ext == AF_STR_GpuProfileTraceFileExtension || ext == AF_STR_GpuProfileSessionFileExtension || ext == AF_STR_profileFileExtension4)
         {
             mdiCreatorType = AF_STR_GPUProfileViewsCreatorID;
         }
-        else if (ext == AF_STR_profileFileExtension7)
-        {
-            mdiCreatorType = AF_STR_ThreadProfileViewsCreatorID;
-        }
-        else if (ext == AF_STR_profileFileExtension6)
-        {
-            mdiCreatorType = AF_STR_PowerProfileViewsCreatorID;
-        }
-        else if (ext == AF_STR_profileFileExtension8 || ext == AF_STR_profileFileExtension9 || ext == AF_STR_frameAnalysisDashboardFileExtension || ext == AF_STR_frameAnalysisOverviewFileExtension)
-        {
-            mdiCreatorType = AF_STR_GPUProfileViewsCreatorID;
-        }
-
-#ifdef GP_OBJECT_VIEW_ENABLE    // GP_OBJECT_VIEW_ENABLE(manual enable)
-        else if (ext == AF_STR_profileFileExtension10)
-        {
-            mdiCreatorType = AF_STR_GPUProfileViewsCreatorID;
-        }
-
-#endif
         else if (ext == AF_STR_pngFileExtension)
         {
             mdiCreatorType = AF_STR_GenericMDIViewsCreatorID;
@@ -212,12 +187,7 @@ afApplicationTree::DragAction appApplicationCommands::DragActionForDropEvent(QDr
                                  (extension == AF_STR_profileFileExtension2) ||
                                  (extension == AF_STR_profileFileExtension3) ||
                                  (extension == AF_STR_profileFileExtension4) ||
-                                 (extension == AF_STR_profileFileExtension5) ||
-                                 (extension == AF_STR_profileFileExtension6) ||
-                                 (extension == AF_STR_profileFileExtension7) ||
-                                 (extension == AF_STR_profileFileExtension8) ||
-                                 (extension == AF_STR_profileFileExtension9) ||
-                                 (extension == AF_STR_frameAnalysisArchivedFileExtension))
+                                 (extension == AF_STR_profileFileExtension5))
                         {
                             // Check if the list is mixed:
                             if ((retVal != afApplicationTree::DRAG_NO_ACTION) && (retVal != afApplicationTree::DRAG_ADD_SESSION_TO_TREE))

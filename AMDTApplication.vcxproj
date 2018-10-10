@@ -91,7 +91,7 @@
     <Import Project="..\VersionInfo\VersionInfo.props" />
     <Import Project="$(AMDTCommonAMD)\APPSDK\Global-OpenCL-NoLib.props" />
     <Import Project="$(AMDTCommonExt)\QScintilla\Global-QScintilla.props" />
-    <Import Project="$(AMDTCommonExt)\Qt\Global-QT.props" />
+    <Import Project="$(CommonProjectsDir)\Qt\Global-QT.props" />
     <Import Project="$(AMDTCommonEXT)\tinyxml\Global-TinyXML-2015.props" />
   </ImportGroup>
   <PropertyGroup>
